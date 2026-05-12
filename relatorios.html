@@ -1,0 +1,144 @@
+<!-- relatorios.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Relatórios - InfraSmart</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="relatorios.css">
+
+<!-- Ícones -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<main class="conteudo">
+
+    <!-- TOPO -->
+    <header class="topo">
+
+        <div>
+            <h1>Relatórios</h1>
+            <p>Exportação e análise de dados do sistema</p>
+        </div>
+
+        <div class="acoes-topo">
+
+   <button class="btn-voltar">
+    <a href="../telainicial/index.html">
+        <i class="fas fa-house"></i>
+        Voltar ao Início
+    </a>
+</button>
+        
+
+            <button class="btn-principal"
+            onclick="gerarRelatorio()">
+                <i class="fas fa-file-pdf"></i>
+                Gerar Relatório
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- CARDS -->
+    <section class="cards">
+
+        <div class="card azul">
+            <i class="fas fa-file-lines"></i>
+            <div>
+                <h3>Total Relatórios</h3>
+                <span id="totalRelatorios">0</span>
+            </div>
+        </div>
+
+        <div class="card verde">
+            <i class="fas fa-calendar-check"></i>
+            <div>
+                <h3>Hoje</h3>
+                <span id="hoje">0</span>
+            </div>
+        </div>
+
+        <div class="card amarelo">
+            <i class="fas fa-clock"></i>
+            <div>
+                <h3>Pendentes</h3>
+                <span id="pendentes">0</span>
+            </div>
+        </div>
+
+        <div class="card vermelho">
+            <i class="fas fa-triangle-exclamation"></i>
+            <div>
+                <h3>Falhas</h3>
+                <span id="falhas">0</span>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- FILTROS -->
+    <section class="filtros">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar relatório..."
+            onkeyup="filtrarRelatorios()"
+        >
+
+        <select id="filtroTipo"
+        onchange="filtrarRelatorios()">
+            <option value="">Todos</option>
+            <option value="PDF">PDF</option>
+            <option value="Excel">Excel</option>
+            <option value="CSV">CSV</option>
+        </select>
+
+    </section>
+
+
+
+    <!-- TABELA -->
+    <section class="tabela-box">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaRelatorios"></tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+<!-- JS -->
+<script src="relatorios.js"></script>
+
+</body>
+</html>

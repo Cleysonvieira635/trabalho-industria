@@ -1,0 +1,348 @@
+<!-- ==========================================
+INDEX.HTML COMPLETO - InfraSmart
+========================================== -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>InfraSmart</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="home">
+
+<!-- ==========================================
+NAVBAR
+========================================== -->
+<nav class="navbar">
+
+    <div class="logo">
+        <img src="../telainicial/img/infra.png" alt="InfraSmart">
+        <h2>InfraSmart</h2>
+    </div>
+
+    <ul class="menu-nav">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#modulos">Módulos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+    </ul>
+
+    <div class="acoes-nav">
+
+        <button class="btn-login"
+        onclick="abrirLogin()">
+            Entrar
+        </button>
+
+        <button class="btn-cadastro"
+        onclick="abrirCadastro()">
+            Cadastrar
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==========================================
+HERO
+========================================== -->
+<section class="hero" id="inicio">
+
+    <div class="hero-texto">
+
+        <h1>
+            Sistema Inteligente de
+            Infraestrutura
+        </h1>
+
+        <p>
+            Monitore estruturas, receba alertas,
+            acompanhe relatórios e tenha total
+            controle em tempo real.
+        </p>
+
+        <div class="botoes-hero">
+
+            <button onclick="abrirLogin()">
+                Acessar Sistema
+            </button>
+
+            <button class="secundario"
+            onclick="abrirCadastro()">
+                Criar Conta
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-img">
+        <img src="../telainicial/img/infraimg.png" alt="Logo InfraSmart">
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+RECURSOS
+========================================== -->
+<section class="recursos" id="recursos">
+
+    <h2>Recursos Principais</h2>
+
+    <div class="grid-home">
+
+        <div class="card-home">
+            <i class="fas fa-chart-line"></i>
+            <h3>Dashboard</h3>
+            <p>Indicadores em tempo real.</p>
+        </div>
+
+        <div class="card-home">
+            <i class="fas fa-bell"></i>
+            <h3>Alertas</h3>
+            <p>Falhas detectadas automaticamente.</p>
+        </div>
+
+        <div class="card-home">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Relatórios</h3>
+            <p>Exportação completa de dados.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+MÓDULOS
+========================================== -->
+<section class="modulos" id="modulos">
+
+    <h2>Módulos do Sistema</h2>
+
+    <div class="grid-home">
+
+        <a href="../dashboard/dashboard.html" class="card-home">
+            <i class="fas fa-chart-pie"></i>
+            <h3>Dashboard</h3>
+        </a>
+
+        <a href="../infraestruturas/infraestruturas.html" class="card-home">
+            <i class="fas fa-building"></i>
+            <h3>Infraestruturas</h3>
+        </a>
+
+        <a href="../alertas/alertas.html" class="card-home">
+            <i class="fas fa-bell"></i>
+            <h3>Alertas</h3>
+        </a>
+
+        <a href="../relatorios/relatorios.html" class="card-home">
+            <i class="fas fa-file-lines"></i>
+            <h3>Relatórios</h3>
+        </a>
+
+        <a href="../configuracoes/configuracoes.html" class="card-home">
+            <i class="fas fa-gear"></i>
+            <h3>Configurações</h3>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+SOBRE
+========================================== -->
+<section class="sobre" id="sobre">
+
+    <h2>Sobre o Projeto</h2>
+
+    <p>
+        O InfraSmart foi desenvolvido para
+        modernizar o monitoramento de
+        infraestruturas com tecnologia,
+        segurança e inovação.
+    </p>
+
+</section>
+
+
+
+<!-- ==========================================
+FOOTER
+========================================== -->
+<footer class="footer-home">
+
+    <p>© 2026 InfraSmart - Sistema ADS</p>
+
+</footer>
+
+</div>
+
+
+
+<!-- ==========================================
+LOGIN
+========================================== -->
+<div class="modal hidden" id="loginModal">
+
+    <div class="modal-box">
+
+        <span class="fechar"
+        onclick="fecharLogin()">&times;</span>
+
+        <h2>Entrar no Sistema</h2>
+
+        <input type="email"
+        id="loginEmail"
+        placeholder="Digite seu email">
+
+        <input type="password"
+        id="loginSenha"
+        placeholder="Digite sua senha">
+
+        <button onclick="entrarSistema()">
+            Acessar Sistema
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+CADASTRO
+========================================== -->
+<div class="modal hidden" id="cadastroModal">
+
+    <div class="modal-box">
+
+        <span class="fechar"
+        onclick="fecharCadastro()">&times;</span>
+
+        <h2>Criar Cadastro</h2>
+
+        <input type="text"
+        id="nomeCadastro"
+        placeholder="Nome completo">
+
+        <input type="email"
+        id="emailCadastro"
+        placeholder="Email">
+
+        <input type="password"
+        id="senhaCadastro"
+        placeholder="Senha">
+
+        <button onclick="cadastrarUsuario()">
+            Criar Conta
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* LOGIN */
+function abrirLogin(){
+document.getElementById("loginModal")
+.classList.remove("hidden");
+}
+
+function fecharLogin(){
+document.getElementById("loginModal")
+.classList.add("hidden");
+}
+
+/* CADASTRO */
+function abrirCadastro(){
+document.getElementById("cadastroModal")
+.classList.remove("hidden");
+}
+
+function fecharCadastro(){
+document.getElementById("cadastroModal")
+.classList.add("hidden");
+}
+
+/* CADASTRAR */
+function cadastrarUsuario(){
+
+let nome =
+document.getElementById("nomeCadastro").value;
+
+let email =
+document.getElementById("emailCadastro").value;
+
+let senha =
+document.getElementById("senhaCadastro").value;
+
+if(nome == "" || email == "" || senha == ""){
+alert("Preencha todos os campos!");
+return;
+}
+
+localStorage.setItem("usuario", nome);
+localStorage.setItem("email", email);
+localStorage.setItem("senha", senha);
+
+alert("Cadastro realizado com sucesso!");
+fecharCadastro();
+
+}
+
+/* LOGIN */
+function entrarSistema(){
+
+let email =
+document.getElementById("loginEmail").value;
+
+let senha =
+document.getElementById("loginSenha").value;
+
+let emailSalvo =
+localStorage.getItem("email");
+
+let senhaSalva =
+localStorage.getItem("senha");
+
+if(email == emailSalvo && senha == senhaSalva){
+
+alert("Login realizado!");
+window.location.href = "dashboard.html";
+
+}else{
+alert("Email ou senha inválidos!");
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!-- configuracoes.html MELHORADO -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Configurações - InfraSmart</title>
+
+<link rel="stylesheet" href="configuracoes.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body class="tema-claro">
+
+<main class="conteudo">
+
+<!-- ==========================================
+TOPO
+========================================== -->
+<header class="topo">
+
+    <div>
+        <h1>Configurações</h1>
+        <p>Preferências gerais do sistema</p>
+    </div>
+
+    <div class="acoes-topo">
+
+        <a href="../telainicial/index.html"
+        class="btn-voltar">
+            <i class="fas fa-house"></i>
+            Voltar ao Início
+        </a>
+
+        <button class="btn-principal"
+        onclick="salvarConfiguracoes()">
+            <i class="fas fa-save"></i>
+            Salvar Alterações
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ==========================================
+FORMULÁRIO
+========================================== -->
+<section class="box-config">
+
+    <div class="grupo">
+        <label><i class="fas fa-building"></i> Nome da Empresa</label>
+        <input type="text"
+        id="empresa"
+        placeholder="Digite o nome">
+    </div>
+
+    <div class="grupo">
+        <label><i class="fas fa-envelope"></i> Email do Administrador</label>
+        <input type="email"
+        id="email"
+        placeholder="Digite o email">
+    </div>
+
+    <div class="grupo">
+        <label><i class="fas fa-palette"></i> Tema do Sistema</label>
+        <select id="modo">
+            <option value="Claro">Claro</option>
+            <option value="Escuro">Escuro</option>
+        </select>
+    </div>
+
+    <div class="grupo">
+        <label><i class="fas fa-bell"></i> Alertas por Email</label>
+        <select id="alertaEmail">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+    </div>
+
+    <div class="grupo">
+        <label><i class="fas fa-rotate"></i> Atualização Automática</label>
+        <select id="autoUpdate">
+            <option value="Ativado">Ativado</option>
+            <option value="Desativado">Desativado</option>
+        </select>
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+STATUS
+========================================== -->
+<section class="status-box">
+
+    <h2>Status do Sistema</h2>
+
+    <div class="status-item">
+        <span>Servidor</span>
+        <strong class="online">Online</strong>
+    </div>
+
+    <div class="status-item">
+        <span>Banco de Dados</span>
+        <strong class="online">Conectado</strong>
+    </div>
+
+    <div class="status-item">
+        <span>API</span>
+        <strong class="online">Ativa</strong>
+    </div>
+
+</section>
+
+</main>
+
+
+
+<script>
+
+/* SALVAR CONFIGURAÇÕES */
+function salvarConfiguracoes(){
+
+let empresa =
+document.getElementById("empresa").value;
+
+let email =
+document.getElementById("email").value;
+
+let tema =
+document.getElementById("modo").value;
+
+let alerta =
+document.getElementById("alertaEmail").value;
+
+let update =
+document.getElementById("autoUpdate").value;
+
+/* SALVAR */
+localStorage.setItem("empresa", empresa);
+localStorage.setItem("emailAdmin", email);
+localStorage.setItem("tema", tema);
+localStorage.setItem("alerta", alerta);
+localStorage.setItem("update", update);
+
+/* APLICAR */
+aplicarTema();
+
+alert("Configurações salvas com sucesso!");
+
+}
+
+
+/* CARREGAR CONFIG */
+function carregarConfiguracoes(){
+
+document.getElementById("empresa").value =
+localStorage.getItem("empresa") || "";
+
+document.getElementById("email").value =
+localStorage.getItem("emailAdmin") || "";
+
+document.getElementById("modo").value =
+localStorage.getItem("tema") || "Claro";
+
+document.getElementById("alertaEmail").value =
+localStorage.getItem("alerta") || "Sim";
+
+document.getElementById("autoUpdate").value =
+localStorage.getItem("update") || "Ativado";
+
+aplicarTema();
+
+}
+
+
+/* APLICAR TEMA GLOBAL */
+function aplicarTema(){
+
+let tema =
+localStorage.getItem("tema");
+
+if(tema === "Escuro"){
+
+document.body.style.background =
+"#0f172a";
+
+document.body.style.color =
+"#ffffff";
+
+}else{
+
+document.body.style.background =
+"#f8fafc";
+
+document.body.style.color =
+"#0f172a";
+
+}
+
+}
+
+/* INICIAR */
+window.onload = carregarConfiguracoes;
+
+</script>
+
+</body>
+</html>

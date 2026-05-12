@@ -1,0 +1,177 @@
+<!-- infraestrutura.html -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Infraestruturas - InfraSmart</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="infraestrutura.css">
+
+<!-- Ícones -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<main class="conteudo">
+
+    <!-- TOPO -->
+    <header class="topo">
+
+        <div>
+            <h1>Infraestruturas</h1>
+            <p>Gerenciamento completo das estruturas cadastradas</p>
+        </div>
+
+        <div class="acoes-topo">
+
+            <a href="../telainicial/index.html" class="btn-voltar">
+                <i class="fas fa-house"></i>
+                Voltar ao Início
+            </a>
+
+            <button class="btn-principal"
+            onclick="abrirModal()">
+                <i class="fas fa-plus"></i>
+                Nova Infraestrutura
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- CARDS -->
+    <section class="cards">
+
+        <div class="card azul">
+            <i class="fas fa-building"></i>
+            <div>
+                <h3>Total</h3>
+                <span id="totalInfra">0</span>
+            </div>
+        </div>
+
+        <div class="card verde">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <h3>Ativas</h3>
+                <span id="ativas">0</span>
+            </div>
+        </div>
+
+        <div class="card amarelo">
+            <i class="fas fa-tools"></i>
+            <div>
+                <h3>Manutenção</h3>
+                <span id="manutencao">0</span>
+            </div>
+        </div>
+
+        <div class="card vermelho">
+            <i class="fas fa-triangle-exclamation"></i>
+            <div>
+                <h3>Críticas</h3>
+                <span id="criticas">0</span>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- FILTROS -->
+    <section class="filtros">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar infraestrutura..."
+            onkeyup="filtrarInfra()"
+        >
+
+        <select id="statusFiltro"
+        onchange="filtrarInfra()">
+            <option value="">Todos</option>
+            <option value="Ativa">Ativa</option>
+            <option value="Manutenção">Manutenção</option>
+            <option value="Crítica">Crítica</option>
+        </select>
+
+    </section>
+
+
+
+    <!-- TABELA -->
+    <section class="tabela-box">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Local</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaInfra"></tbody>
+
+        </table>
+
+    </section>
+
+
+
+    <!-- MODAL -->
+    <div class="modal hidden" id="modalInfra">
+
+        <div class="modal-box">
+
+            <h2>Nova Infraestrutura</h2>
+
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="tipo" placeholder="Tipo">
+            <input type="text" id="local" placeholder="Localização">
+
+            <select id="status">
+                <option>Ativa</option>
+                <option>Manutenção</option>
+                <option>Crítica</option>
+            </select>
+
+            <div class="acoes-modal">
+
+                <button onclick="salvarInfra()">
+                    Salvar
+                </button>
+
+                <button class="cancelar"
+                onclick="fecharModal()">
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JS -->
+<script src="infraestrutura.js"></script>
+
+</body>
+</html>

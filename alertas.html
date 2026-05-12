@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Alertas - InfraSmart</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="alerta.css">
+
+<!-- Ícones -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<main class="conteudo">
+
+    <!-- TOPO -->
+    <header class="topo">
+
+        <div>
+            <h1><i class="fas fa-bell"></i> Alertas</h1>
+            <p>Monitoramento e notificações em tempo real</p>
+        </div>
+
+        <button class="btn-principal" onclick="gerarAlerta()">
+            <i class="fas fa-plus"></i>
+            Novo Alerta
+        </button>
+
+    </header>
+
+
+
+    <!-- CARDS -->
+    <section class="cards">
+
+        <div class="card vermelho">
+            <i class="fas fa-triangle-exclamation"></i>
+            <div>
+                <h3>Críticos</h3>
+                <span id="criticos">0</span>
+            </div>
+        </div>
+
+        <div class="card amarelo">
+            <i class="fas fa-circle-exclamation"></i>
+            <div>
+                <h3>Médios</h3>
+                <span id="medios">0</span>
+            </div>
+        </div>
+
+        <div class="card azul">
+            <i class="fas fa-bell"></i>
+            <div>
+                <h3>Total</h3>
+                <span id="totalAlertas">0</span>
+            </div>
+        </div>
+
+        <div class="card verde">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <h3>Resolvidos</h3>
+                <span id="resolvidos">0</span>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- FILTROS -->
+    <section class="filtros">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Pesquisar alerta..."
+            onkeyup="filtrarAlertas()"
+        >
+
+        <select id="filtroNivel" onchange="filtrarAlertas()">
+            <option value="">Todos Níveis</option>
+            <option value="Crítico">Crítico</option>
+            <option value="Médio">Médio</option>
+            <option value="Baixo">Baixo</option>
+        </select>
+
+    </section>
+
+
+
+    <!-- TABELA -->
+    <section class="tabela-box">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Infraestrutura</th>
+                    <th>Descrição</th>
+                    <th>Nível</th>
+                    <th>Status</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="listaAlertas"></tbody>
+
+        </table>
+
+    </section>
+
+</main>
+
+<!-- JS -->
+<script src="alerta.js"></script>
+
+</body>
+</html>
